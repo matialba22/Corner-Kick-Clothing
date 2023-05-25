@@ -1,0 +1,32 @@
+.header-container {
+  display: flex;
+  margin: 20px;
+}
+
+.logo-header {
+  width: 150px;
+}
+
+.logo-img {
+  width: 100%;
+}
+
+.nav-ul {
+  display: flex;
+  list-style: none;
+}
+
+.nav-ul li {
+  margin: 0 20px;
+}
+
+@media Screen and (min-width: 769px) {
+  nav {
+    padding: 10px 20px;
+    border-bottom: solid 1px black;
+    border-top: solid 1px black;
+  }
+}
+
+@media Screen and (min-width: 1200px) {
+}
