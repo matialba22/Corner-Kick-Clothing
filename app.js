@@ -14,9 +14,9 @@ app.listen(process.env.PORT || 3030, () => "Server running on port 3030");
 
 // ************ Routes ************
 const mainRoutes = require("./src/routes/main");
-const productsRoutes = require("./src/routes/products");
+const shopRoutes = require("./src/routes/shop");
 const usersRoutes = require("./src/routes/users");
 
 app.use("/", mainRoutes);
-app.use("/products", productsRoutes);
+app.use("/shop", shopRoutes);
 app.use("/users", usersRoutes);
