@@ -1,5 +1,10 @@
 <header>
   <div class="header-container">
+    <div class="mobile-nav">
+      <div class="icons burger-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
     <div class="logo-header">
       <a href="/">
         <img src="./images/logo.png" alt="Page logo" class="logo-img" />
@@ -7,44 +12,51 @@
     </div>
 
     <div>
+      <form method="get" action="/search" class="search">
+        <div class="search-glass">
+          <input
+            class="search-bar"
+            type="text"
+            name="q"
+            placeholder="Search..."
+            required
+            minlength="3"
+          />
+          <div class="magn-glass">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="log-register">
       <i class="fa-solid fa-user"></i>
+      <a href="/register" class="links bold">Sign up</a><span> or </span
+      ><a href="/login" class="links bold">Sign in</a>
+    </div>
+
+    <div class="icons links">
+      <a href="/cart"><i class="fa-solid fa-cart-shopping links"></i></a>
     </div>
   </div>
 
   <nav>
     <div>
-      <div class="mobile-nav">
-
-        <div class="icons burger-menu">
-          <i class="fas fa-bars"></i>
-        </div>
-  
-        <form method="get" action="/search" class="search">
-          <div class="search-glass">
-              <input class="search-bar" type="text" name="q" placeholder="Search..." required minlength="3" >
-              <div class="magn-glass">
-                  <i class="fa-solid fa-magnifying-glass"></i>
-              </div>
-          </div>
-        </form>
-        <div class="icons cart"><a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a></i></div>
-      </div>
-
       <ul class="nav-ul">
         <li>
-          <a href="/shop">Shop</a>
+          <a href="/shop" class="links">Shop</a>
         </li>
         <li>
-          <a href="/shop/footwear">Footwear</a>
+          <a href="/shop/footwear" class="links">Footwear</a>
         </li>
         <li>
-          <a href="/shop/goalkeeper">Goalkeeper</a>
+          <a href="/shop/goalkeeper" class="links">Goalkeeper</a>
         </li>
         <li>
-          <a href="/shop/equipment">Equipment</a>
+          <a href="/shop/equipment" class="links">Equipment</a>
         </li>
         <li>
-          <a href="/shop/apparel">Apparel</a>
+          <a href="/shop/apparel" class="links">Apparel</a>
         </li>
       </ul>
     </div>
