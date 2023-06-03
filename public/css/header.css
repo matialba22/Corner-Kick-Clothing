@@ -11,10 +11,13 @@
 
 .logo-img {
   width: 100%;
+  padding-right: 10px;
 }
 
 nav {
-  display: none;
+  display: block;
+  padding: 10px 20px;
+  background-color: black;
 }
 
 nav ul {
@@ -36,12 +39,26 @@ nav ul {
   align-items: center;
 }
 
+.search-bar {
+  width: 35vw;
+  height: 35px;
+  max-width: 200px;
+  padding: 10px;
+}
+
 .magn-glass {
-  margin: 0 10px;
+  right: 25px;
+  top: 2px;
+  position: relative;
 }
 
 .icons {
   font-size: 25px;
+}
+
+.burger-menu {
+  color: white;
+  font-size: 20px;
 }
 
 li .links {
@@ -53,15 +70,16 @@ li .links {
   color: black;
 }
 
+.tab {
+  display: none;
+}
+.pc {
+  display: none;
+}
+
 @media Screen and (min-width: 769px) {
   .mobile-nav {
     display: none;
-  }
-
-  nav {
-    display: block;
-    padding: 10px 20px;
-    background-color: black;
   }
 
   .nav-ul {
@@ -81,7 +99,22 @@ li .links {
   .bold {
     font-weight: bold;
   }
+
+  .mob {
+    display: none;
+  }
+
+  .tab {
+    display: inline;
+  }
 }
 
 @media Screen and (min-width: 1200px) {
+  .pc {
+    display: inline;
+  }
+
+  .tab {
+    display: none;
+  }
 }
