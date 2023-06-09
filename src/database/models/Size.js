@@ -20,5 +20,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
+  Size.associate = (models) => {
+    Size.belongsToMany(models.Product, {
+      through: "product_sizes",
+      foreignKey: "size_id",
+      otherKey: "product_id",
+      as: "products",
+    });
+  };
+
   return Size;
 };

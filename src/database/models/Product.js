@@ -29,5 +29,35 @@ module.exports = (sequelize, DataTypes) => {
     { tableName: "products", timestamps: false }
   );
 
+  Product.associate = (models) => {
+    Product.belongsTo(models.Category, {
+      foreignKey: "category_id",
+      as: "categories",
+    });
+  };
+
+  Product.associate = (models) => {
+    Product.belongsTo(models.Brand, {
+      foreignKey: "brand_id",
+      as: "brands",
+    });
+  };
+
+  Product.associate = (models) => {
+    Product.hasMany(models.ProductImage, {
+      foreignKey: "product_id",
+      as: "images",
+    });
+  };
+
+  Product.associate = (models) => {
+    Product.belongsToMany(models.Size, {
+      through: "product_sizes",
+      foreignKey: "product_id",
+      otherKey: "size_id",
+      as: "sizes",
+    });
+  };
+
   return Product;
 };
