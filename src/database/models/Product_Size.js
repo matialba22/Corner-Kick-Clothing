@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Product_Size = sequelize.define(
-    "Product_Size",
+    "Product_Sizes",
     {
       product_id: {
         primaryKey: true,
@@ -18,12 +18,12 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Product_Size.associate = (models) => {
-    Product_Size.belongsTo(models.Product, {
+    Product_Size.belongsTo(models.Products, {
       foreignKey: "product_id",
       as: "products",
     });
 
-    Product_Size.belongsTo(models.Size, {
+    Product_Size.belongsTo(models.Sizes, {
       foreignKey: "size_id",
       as: "sizes",
     });

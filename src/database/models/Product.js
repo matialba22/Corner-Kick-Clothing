@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Product = sequelize.define(
-    "Product",
+    "Products",
     {
       id: {
         autoIncrement: true,
@@ -30,28 +30,22 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Product.associate = (models) => {
-    Product.belongsTo(models.Category, {
+    Product.belongsTo(models.Categories, {
       foreignKey: "category_id",
       as: "categories",
     });
-  };
 
-  Product.associate = (models) => {
-    Product.belongsTo(models.Brand, {
+    Product.belongsTo(models.Brands, {
       foreignKey: "brand_id",
       as: "brands",
     });
-  };
 
-  Product.associate = (models) => {
-    Product.hasMany(models.ProductImage, {
+    Product.hasMany(models.Product_Images, {
       foreignKey: "product_id",
-      as: "images",
+      as: "product_images",
     });
-  };
 
-  Product.associate = (models) => {
-    Product.belongsToMany(models.Size, {
+    Product.belongsToMany(models.Sizes, {
       through: "product_sizes",
       foreignKey: "product_id",
       otherKey: "size_id",

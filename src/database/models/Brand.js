@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Brand = sequelize.define(
-    "Brand",
+    "Brands",
     {
       id: {
         primaryKey: true,
@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Brand.associate = (models) => {
-    Brand.hasMany(models.Product, {
+    Brand.hasMany(models.Products, {
       foreignKey: "brand_id",
       as: "products",
     });

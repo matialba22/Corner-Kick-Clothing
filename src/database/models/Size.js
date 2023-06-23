@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Size = sequelize.define(
-    "Size",
+    "Sizes",
     {
       id: {
         autoIncrement: true,
@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Size.associate = (models) => {
-    Size.belongsToMany(models.Product, {
+    Size.belongsToMany(models.Products, {
       through: "product_sizes",
       foreignKey: "size_id",
       otherKey: "product_id",
