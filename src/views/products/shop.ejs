@@ -7,20 +7,19 @@
   <body>
     <%- include("../partials/header.ejs") %>
 
-    <div>
-      <% products.forEach(product => { %>
+    <div class="product-list">
+      <% products.forEach((product) => { %>
 
-      <div class="caja-prod">
+      <div class="product-card">
         <div>
-          <% product.product_images.forEach((productImage) => { %>
           <img
-            src="/images/products/<%= productImage.image_url %>.png"
-            alt="Image of <%= product.name%>"
+            src="/images/products/<%= product.product_images[0].image_url %>.png"
+            alt="Image of <%= product.name %>"
+            class="product-img"
           />
-          <% }) %>
         </div>
         <h4><%= product.name %></h4>
-        <p>$<%= product.price%></p>
+        <p>$<%= product.price %></p>
       </div>
 
       <% }) %>

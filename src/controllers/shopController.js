@@ -1,15 +1,18 @@
 const db = require("../database/models");
 
 const shopController = {
-  shop: (req, res) => {
-    db.Products.findAll({
+  list: () => {
+    return db.Products.findAll({
       include: [{ association: "product_images" }],
-    })
+    });
+  },
+
+  shop: (req, res) => {
+    shopController
+      .list()
       .then((products) => {
-        res.render("./products/shop", {
-          products,
-          product_images: products.product_images,
-        });
+        console.log(this);
+        res.render("./products/shop", { products });
       })
       .catch((error) => {
         console.log(error);
