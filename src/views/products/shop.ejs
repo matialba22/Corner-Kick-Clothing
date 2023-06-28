@@ -7,22 +7,30 @@
   <body>
     <%- include("../partials/header.ejs") %>
 
+    <div class="filter-btn">
+      <h4>Filter...</h4>
+    </div>
+
     <div class="product-list">
       <% products.forEach((product) => { %>
 
       <div class="product-card">
-        <div>
+        <div class="img-container">
           <img
             src="/images/products/<%= product.product_images[0].image_url %>.png"
             alt="Image of <%= product.name %>"
             class="product-img"
           />
         </div>
-        <h4><%= product.name %></h4>
-        <p>$<%= product.price %></p>
+        <div class="product-info">
+          <h4><%= product.name %></h4>
+          <p>$<%= product.price %></p>
+        </div>
       </div>
 
       <% }) %>
     </div>
+
+    <%- include("../partials/footer.ejs") %>
   </body>
 </html>
