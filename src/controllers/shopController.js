@@ -11,13 +11,16 @@ const shopController = {
     shopController
       .list()
       .then((products) => {
-        console.log(this);
         res.render("./products/shop", { products });
       })
       .catch((error) => {
         console.log(error);
         res.sendStatus(500);
       });
+  },
+
+  create: (req, res) => {
+    res.render("./products/create");
   },
 };
 
