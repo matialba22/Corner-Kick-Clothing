@@ -20,7 +20,19 @@ const shopController = {
   },
 
   create: (req, res) => {
-    res.render("./products/create");
+    let brands = db.Brands.findAll();
+    let categories = db.Categories.findAll();
+    let sizes = db.Sizes.findAll();
+
+    Promise.all([brands, categories, sizes]).then(
+      ([brands, categories, sizes]) => {
+        return res.render("./products/createProduct", {
+          brands,
+          categories,
+          sizes,
+        });
+      }
+    );
   },
 };
 

@@ -20,10 +20,12 @@ module.exports = (sequelize, DataTypes) => {
 
       category_id: {
         type: DataTypes.INTEGER,
+        allowNull: false,
       },
 
       brand_id: {
         type: DataTypes.INTEGER,
+        allowNull: false,
       },
     },
     { tableName: "products", timestamps: false }
