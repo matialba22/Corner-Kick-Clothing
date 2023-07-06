@@ -8,82 +8,99 @@
     <%-include('../partials/header')%>
     <main>
       <div class="form-container">
-        <form action="/shop/create" method="POST">
+        <form action="/shop/create" method="POST" enctype="multipart/form-data">
           <div class="input-container">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required />
 
-            <label for="price">Price:</label>
-            <input type="text" id="price" name="price" required />
+            <div>
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" required />
+            </div>
 
-            <label for="description">Description:</label>
-            <textarea id="description" name="description" required></textarea>
+            <div>
+              <label for="price">Price:</label>
+              <input type="text" id="price" name="price" required />
+            </div>
 
-            <label for="category">Category:</label>
-            <select id="category" name="category">
-              <option value="" disabled selected>- Select a category -</option>
-              <% if (locals.oldData) { %>
-                <% categories.forEach(category => { %>
-                  <option 
-                    value="<%= category.id %>" 
-                    <%= (category.id==oldData.category)?'selected':'' %>>
-                    <%=category.category_name %>
-                  </option>
-              <% }) %>
-              <% } else { %>
-                <% categories.forEach(category => { %>
-                <option value="<%= category.id %>"><%=category.category_name %></option>
+            <div>
+              <label for="description">Description:</label>
+              <textarea id="description" name="description" required></textarea>
+            </div>
+
+            <div>
+              <label for="category">Category:</label>
+              <select id="category" name="category">
+                <option value="" disabled selected>- Select a category -</option>
+                <% if (locals.oldData) { %>
+                  <% categories.forEach(category => { %>
+                    <option 
+                      value="<%= category.id %>" 
+                      <%= (category.id==oldData.category)?'selected':'' %>>
+                      <%=category.category_name %>
+                    </option>
                 <% }) %>
-              <% } %>
-            </select>
+                <% } else { %>
+                  <% categories.forEach(category => { %>
+                  <option value="<%= category.id %>"><%=category.category_name %></option>
+                  <% }) %>
+                <% } %>
+              </select>
+            </div>
 
-            <label for="brand">Brand:</label>
-            <select id="brand" name="brand">
-              <option value="" disabled selected>- Select a brand -</option>
-              <% if (locals.oldData) { %>
-                <% brand.forEach(brand => { %>
-                  <option 
-                    value="<%= brand.id %>" 
-                    <%= (brand.id==oldData.brand)?'selected':'' %>>
-                    <%=brand.brand_name %>
-                  </option>
-              <% }) %>
-              <% } else { %>
-                <% brands.forEach(brand => { %>
-                <option value="<%= brand.id %>"><%=brand.brand_name %></option>
+            <div>
+              <label for="subcategory">Subcategory:</label>
+              <select id="subcategory" name="subcategory">
+                <option value="" disabled selected>- Select a subcategory -</option>
+                <% if (locals.oldData) { %>
+                  <% subcategories.forEach(subcategory => { %>
+                    <option 
+                      value="<%= subcategory.id %>" 
+                      <%= (subcategory.id==oldData.subcategory)?'selected':'' %>>
+                      <%=subcategory.subcategory_name %>
+                    </option>
                 <% }) %>
-              <% } %>
-            </select>
-
-            <label for="size">Size:</label>
-            <select id="size" name="size">
-              <option value="" disabled selected>- Select a size -</option>
-              <% if (locals.oldData) { %>
-                <% sizes.forEach(size => { %>
-                  <option 
-                    value="<%= size.id %>" 
-                    <%= (size.id==oldData.size)?'selected':'' %>>
-                    <%=size.name %>
-                  </option>
-              <% }) %>
-              <% } else { %>
-                <% sizes.forEach(size => { %>
-                <option value="<%= size.id %>"><%=size.size_name %></option>
+                <% } else { %>
+                  <% subcategories.forEach(subcategory => { %>
+                  <option value="<%= subcategory.id %>"><%=subcategory.subcategory_name %></option>
+                  <% }) %>
+                <% } %>
+              </select>
+            </div>
+            
+            <div>
+              <label for="brand">Brand:</label>
+              <select id="brand" name="brand">
+                <option value="" disabled selected>- Select a brand -</option>
+                <% if (locals.oldData) { %>
+                  <% brands.forEach(brand => { %>
+                    <option 
+                      value="<%= brand.id %>" 
+                      <%= (brand.id==oldData.brand)?'selected':'' %>>
+                      <%=brand.brand_name %>
+                    </option>
                 <% }) %>
-              <% } %>
-            </select>
+                <% } else { %>
+                  <% brands.forEach(brand => { %>
+                  <option value="<%= brand.id %>"><%=brand.brand_name %></option>
+                  <% }) %>
+                <% } %>
+              </select>
+            </div>
 
-            <label for="image">Image:</label>
-            <input
-              type="file"
-              id="image"
-              name="image"
-              accept=".png"
-              multiple
-              required
-            />
+            <div>
+              <label for="images">Images (up to 3):</label>
+              <input
+                type="file"
+                id="images"
+                name="images"
+                accept=".png, .jpg, .jpeg"
+                multiple
+                required
+              />
+            </div>
 
-            <input type="submit" value="Create" />
+            <div>
+              <input type="submit" value="Create" />
+            </div>
           </div>
         </form>
       </div>
