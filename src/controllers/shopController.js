@@ -36,7 +36,7 @@ const shopController = {
   storeProduct: (req, res) => {
     const files = req.files;
 
-    db.Product.create({
+    db.Products.create({
       name: req.body.name,
       price: req.body.price,
       category_id: req.body.category,
