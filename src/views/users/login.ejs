@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("../partials/head.ejs") %>
+    <link rel="stylesheet" href="/css/login.css" />
+  </head>
+  <body>
+    <%- include("../partials/header.ejs") %>
+
+    <main>
+      <form action="/users/login" method="POST">
+        <% if(locals && locals.errorMsg){for(error in errorMsg){%>
+        <p><%= errorMsg[error].msg %></p>
+        <% }}%>
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <div>
+          <input type="submit" value="Login" />
+        </div>
+      </form>
+    </main>
+
+    <%- include("../partials/footer.ejs") %>
+  </body>
+</html>
