@@ -3,7 +3,8 @@ const express = require("express");
 const app = express();
 const methodOverride = require("method-override");
 const session = require("express-session");
-const cookieParser = require("cookie-parser");
+const cookies = require("cookie-parser");
+const userLoggedMW = require("./src/middlewares/userLoggedMW");
 
 // ************ Template engine ************
 app.set("view engine", "ejs");
@@ -21,7 +22,8 @@ app.use(
     saveUninitialized: false,
   })
 );
-app.use(cookieParser());
+app.use(cookies());
+app.use(userLoggedMW);
 
 // ************ Server ************
 app.listen(process.env.PORT || 3030, () => "Server running on port 3030");

@@ -23,12 +23,21 @@
         </div>
       </form>
     </div>
+    <% if (locals.userLogged) { %>
+
+    <div class="username">
+      <p>Hi <%= locals.userLogged.username%></p>
+    </div>
+
+    <% }else {%>
 
     <div class="log-register">
       <i class="fa-solid fa-user"></i>
       <a href="/users/register" class="links bold">Sign up</a><span> or </span
       ><a href="/users/login" class="links bold">Sign in</a>
     </div>
+
+    <%} %>
 
     <div class="icons links">
       <a href="/cart"><i class="fa-solid fa-cart-shopping links"></i></a>

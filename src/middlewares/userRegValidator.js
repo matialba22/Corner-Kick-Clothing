@@ -7,6 +7,9 @@ const userRegValidator = [
     .bail()
     .isEmail()
     .withMessage("You must enter a valid email"),
+
+  check("username").notEmpty().withMessage("You must enter a username"),
+
   check("password")
     .notEmpty()
     .withMessage("You must enter a password")

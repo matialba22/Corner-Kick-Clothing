@@ -45,7 +45,7 @@ const shopController = {
       img_1: files[0] ? files[0].filename : null,
       img_2: files[1] ? files[1].filename : null,
       img_3: files[2] ? files[2].filename : null,
-    }).then(res.redirect("/shop"));
+    }).then(() => res.redirect("/shop"));
   },
 
   edit: (req, res) => {

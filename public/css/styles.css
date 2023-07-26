@@ -2,6 +2,14 @@ main {
   padding: 0 15px;
 }
 
+.valid-value {
+  color: #14a44d;
+}
+
+.invalid-value {
+  color: #dc4c64;
+}
+
 * {
   font-family: "roboto", sans-serif;
   margin: 0px;

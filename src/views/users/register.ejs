@@ -9,16 +9,29 @@
 
     <main>
       <form action="/users/register" method="POST">
-        <% if(locals && locals.errorMsg){for(error in errorMsg){%>
-        <p><%= errorMsg[error].msg %></p>
-        <% }}%>
         <label for="email">Email:</label>
         <input
           type="email"
           id="email"
           name="email"
           value="<%= locals.oldData && locals.oldData.email ? locals.oldData.email : '' %>"
+          required
         />
+        <% if (locals.errors && errors.email) { %>
+        <div class="invalid-value"><%= errors.email.msg %></div>
+        <% } %>
+
+        <label for="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          value="<%= locals.oldData && locals.oldData.username ? locals.oldData.username : '' %>"
+          required
+        />
+        <% if (locals.errors && errors.username) { %>
+        <div class="invalid-value"><%= errors.username.msg %></div>
+        <% } %>
 
         <label for="phone">Phone Number:</label>
         <input
@@ -31,7 +44,11 @@
         />
 
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" />
+        <input type="password" id="password" name="password" required />
+
+        <% if (locals.errors && errors.password) { %>
+        <div class="invalid-value"><%= errors.password.msg %></div>
+        <% } %>
 
         <button type="submit">Register</button>
       </form>
