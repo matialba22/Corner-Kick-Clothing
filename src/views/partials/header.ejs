@@ -26,7 +26,11 @@
     <% if (locals.userLogged) { %>
 
     <div class="username">
-      <p>Hi <%= locals.userLogged.username%></p>
+      <a href="/users/profile">
+        <p>
+          Hi <span><%= locals.userLogged.username != '' ? locals.userLogged.username :"User"%></span>
+        </p>
+      </a>
     </div>
 
     <% }else {%>

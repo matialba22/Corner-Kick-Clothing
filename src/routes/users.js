@@ -11,5 +11,7 @@ router.get("/login", authMW, userController.login);
 router.post("/login", userController.processLogin);
 router.post("/logout", userController.logout);
 router.get("/profile", userController.profile);
+router.get('/edit', userController.edit)
+router.put('/edit', userController.processEdit)
 
 module.exports = router;

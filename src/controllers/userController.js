@@ -3,7 +3,8 @@ const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator");
 
 const userController = {
-  register: (req, res) => {
+
+ register: (req, res) => {
     res.render("./users/register");
   },
 
@@ -11,10 +12,12 @@ const userController = {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
+
       return res.render("./users/register", {
         errors: errors.mapped(),
         oldData: req.body,
       });
+
     }
 
     const salt = bcrypt.genSaltSync(10);
@@ -25,7 +28,8 @@ const userController = {
       username: req.body.username,
       phone_number: req.body.phone_number,
       password: hash,
-    }).then(() => res.redirect("/users/login"));
+    })
+    .then(() => res.redirect("/users/login"));
   },
 
   login: (req, res) => {
@@ -42,6 +46,7 @@ const userController = {
   },
 
   processLogin: (req, res) => {
+
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.render("./users/login", {
@@ -49,12 +54,14 @@ const userController = {
         oldData: req.body,
       });
     }
+
     db.Users.findOne({
       where: {
         email: req.body.email,
       },
     })
       .then((userToLogin) => {
+
         if (!userToLogin) {
           return res.render("./users/login", {
             errors: {
@@ -64,6 +71,7 @@ const userController = {
             },
             oldData: req.body,
           });
+
         } else {
           let passwordCheck = bcrypt.compareSync(
             req.body.password,
@@ -71,14 +79,18 @@ const userController = {
           );
 
           if (passwordCheck) {
-            delete userToLogin.password;
-            req.session.userLogged = userToLogin;
+            
+            delete userToLogin.password; // Doesn't work?
+
+            req.session.userLogged =  userToLogin;
+
             if (req.body.rememberMe) {
               res.cookie("userEmail", req.body.email, {
                 maxAge: 1000 * 60 * 2,
               });
             }
             return res.redirect("/");
+
           } else {
             return res.render("./users/login", {
               errors: {
@@ -91,6 +103,7 @@ const userController = {
           }
         }
       })
+
       .catch(function () {
         res.render("./users/login", {
           error: { msg: "Invalid credentials" },
@@ -99,20 +112,44 @@ const userController = {
   },
 
   logout: (req, res) => {
+
     res.clearCookie("userEmail");
     req.session.destroy();
     return res.redirect("/");
+
   },
 
   profile: (req, res) => {
+
     res.render("./users/profile", {
       user: req.session.userLogged,
     });
+
   },
 
-  edit: {},
+  edit: (req, res) => {
 
-  processEdit: {},
+    res.render("./users/editUser", {
+      user: req.session.userLogged,
+    });
+
+  },
+
+  processEdit: (req, res) => {
+    
+    db.Users.update(
+      {
+        username: req.body.username,
+      },
+      {
+        where: {
+          email: req.session.userLogged.email,
+        },
+      }
+    ).then(() => {
+      res.redirect("/users/profile");
+    });
+  },
 };
 
 module.exports = userController;

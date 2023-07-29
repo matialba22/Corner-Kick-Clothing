@@ -8,7 +8,15 @@ const userRegValidator = [
     .isEmail()
     .withMessage("You must enter a valid email"),
 
-  check("username").notEmpty().withMessage("You must enter a username"),
+  check("username")
+    .notEmpty()
+    .withMessage("You must enter a username")
+    .bail()
+    .isLength({min: 4, max: 10})
+    .withMessage("Must have at least 6 characters and a maximum of 10")
+    .bail()
+    .matches(/^[A-Za-z]+$/)
+    .withMessage("Your username must be letters only"),
 
   check("password")
     .notEmpty()

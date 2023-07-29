@@ -7,9 +7,28 @@
   <body>
     <%- include("../partials/header.ejs") %>
     <main>
-      <div>
-        <p><%= user.email %></p>
-      </div>
+      <section>
+        <div class="user-data">
+          <h2>Email:</h2>
+          <p><%= user.email%></p>
+        </div>
+        <div class="user-data">
+          <h2>Username:</h2>
+          <p><%= user.username%></p>
+        </div>
+
+        <div>
+          <button>
+            <a href="/users/edit">Edit</a>
+          </button>
+        </div>
+
+        <div>
+          <form action="/users/logout" method="POST">
+            <button type="submit">Log Out</button>
+          </form>
+        </div>
+      </section>
     </main>
     <%- include("../partials/footer.ejs") %>
   </body>
