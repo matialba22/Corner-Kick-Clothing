@@ -1,4 +1,5 @@
 const db = require("../database/models");
+const { validationResult } = require("express-validator");
 
 const shopController = {
   list: () => {
@@ -35,18 +36,39 @@ const shopController = {
 
   storeProduct: (req, res) => {
     const files = req.files;
-
-    db.Products.create({
-      name: req.body.name,
-      price: req.body.price,
-      category_id: req.body.category,
-      brand_id: req.body.brand,
-      subcategory_id: req.body.subcategory,
-      img_1: files[0] ? files[0].filename : null,
-      img_2: files[1] ? files[1].filename : null,
-      img_3: files[2] ? files[2].filename : null,
-    }).then(() => res.redirect("/shop"));
+    const errors = validationResult(req);
+  
+    if (!errors.isEmpty()) {
+      let brands = db.Brands.findAll();
+      let categories = db.Categories.findAll();
+      let subcategories = db.Subcategories.findAll();
+  
+      Promise.all([brands, categories, subcategories])
+        .then(([brands, categories, subcategories]) => {
+          return res.render("./products/createProduct", {
+            brands,
+            categories,
+            subcategories,
+            errors: errors.mapped(),
+            oldData: req.body,
+          });
+        }
+      );
+    } else {
+      db.Products.create({
+        name: req.body.name,
+        price: req.body.price,
+        category_id: req.body.category,
+        brand_id: req.body.brand,
+        subcategory_id: req.body.subcategory,
+        description: req.body.description,
+        img_1: files[0] ? files[0].filename : null,
+        img_2: files[1] ? files[1].filename : null,
+        img_3: files[2] ? files[2].filename : null,
+      }).then(() => res.redirect("/shop"));
+    }
   },
+  
 
   edit: (req, res) => {
     let brands = db.Brands.findAll();
@@ -83,18 +105,10 @@ const shopController = {
         category_id: req.body.category,
         subcategory_id: req.body.subcategory,
         brand_id: req.body.brand,
-        img_1:
-          req.files && req.files[0]
-            ? req.files[0].filename
-            : db.Sequelize.literal("img_1"),
-        img_2:
-          req.files && req.files[1]
-            ? req.files[1].filename
-            : db.Sequelize.literal("img_2"),
-        img_3:
-          req.files && req.files[2]
-            ? req.files[2].filename
-            : db.Sequelize.literal("img_3"),
+        description: req.body.description,
+        img_1: req.files && req.files[0] ? req.files[0].filename : db.Sequelize.literal("img_1"),
+        img_2: req.files && req.files[1] ? req.files[1].filename : db.Sequelize.literal("img_2"),
+        img_3: req.files && req.files[2] ? req.files[2].filename : db.Sequelize.literal("img_3"),
       },
       {
         where: { id: req.params.id },

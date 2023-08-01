@@ -8,23 +8,35 @@
     <%-include('../partials/header')%>
     <main>
       <div class="form-container">
-        <form action="/shop/create" method="POST" enctype="multipart/form-data">
+        <form method="POST" action="/shop/create" enctype="multipart/form-data">
           <div class="input-container">
 
             <div>
               <label for="name">Name:</label>
-              <input type="text" id="name" name="name" required />
+              <input type="text" id="name" name="name" value="<%= locals.oldData && locals.oldData.name ? locals.oldData.name : '' %>" required />
             </div>
+
+            <% if (locals.errors && errors.name) { %>
+              <div class="invalid-value"><%= errors.name.msg %></div>
+            <% } %>
 
             <div>
               <label for="price">Price:</label>
-              <input type="text" id="price" name="price" required />
+              <input type="text" id="price" name="price" value="<%= locals.oldData && locals.oldData.price ? locals.oldData.price : '' %>" required />
             </div>
+
+            <% if (locals.errors && errors.price) { %>
+              <div class="invalid-value"><%= errors.price.msg %></div>
+            <% } %>
 
             <div>
               <label for="description">Description:</label>
-              <textarea id="description" name="description" required></textarea>
+              <textarea id="description" name="description" required><%= locals.oldData && locals.oldData.description ? locals.oldData.description : '' %></textarea>
             </div>
+
+            <% if (locals.errors && errors.description) { %>
+              <div class="invalid-value"><%= errors.description.msg %></div>
+            <% } %>
 
             <div>
               <label for="category">Category:</label>
@@ -34,8 +46,8 @@
                   <% categories.forEach(category => { %>
                     <option 
                       value="<%= category.id %>" 
-                      <%= (category.id==oldData.category)?'selected':'' %>>
-                      <%=category.category_name %>
+                      <%= ( category.id == oldData.category ) ? 'selected' : '' %>>
+                      <%= category.category_name %>
                     </option>
                 <% }) %>
                 <% } else { %>
@@ -46,6 +58,10 @@
               </select>
             </div>
 
+            <% if (locals.errors && errors.category) { %>
+              <div class="invalid-value"><%= errors.category.msg %></div>
+            <% } %>
+
             <div>
               <label for="subcategory">Subcategory:</label>
               <select id="subcategory" name="subcategory">
@@ -54,8 +70,8 @@
                   <% subcategories.forEach(subcategory => { %>
                     <option 
                       value="<%= subcategory.id %>" 
-                      <%= (subcategory.id==oldData.subcategory)?'selected':'' %>>
-                      <%=subcategory.subcategory_name %>
+                      <%= ( subcategory.id == oldData.subcategory ) ? 'selected' : '' %>>
+                      <%= subcategory.subcategory_name %>
                     </option>
                 <% }) %>
                 <% } else { %>
@@ -65,6 +81,10 @@
                 <% } %>
               </select>
             </div>
+
+            <% if (locals.errors && errors.subcategory) { %>
+              <div class="invalid-value"><%= errors.subcategory.msg %></div>
+            <% } %>
             
             <div>
               <label for="brand">Brand:</label>
@@ -74,7 +94,7 @@
                   <% brands.forEach(brand => { %>
                     <option 
                       value="<%= brand.id %>" 
-                      <%= (brand.id==oldData.brand)?'selected':'' %>>
+                      <%= ( brand.id == oldData.brand ) ? 'selected' : '' %>>
                       <%=brand.brand_name %>
                     </option>
                 <% }) %>
@@ -85,6 +105,10 @@
                 <% } %>
               </select>
             </div>
+
+            <% if (locals.errors && errors.brand) { %>
+              <div class="invalid-value"><%= errors.brand.msg %></div>
+            <% } %>
 
             <div>
               <label for="images">Images (up to 3):</label>
