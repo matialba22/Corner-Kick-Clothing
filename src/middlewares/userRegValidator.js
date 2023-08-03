@@ -10,7 +10,7 @@ const userRegValidator = [
 
   check("username")
     .notEmpty()
-    .withMessage("You must enter a username")
+    .withMessage("You must pick a username")
     .bail()
     .isLength({min: 4, max: 10})
     .withMessage("Must have at least 6 characters and a maximum of 10")
