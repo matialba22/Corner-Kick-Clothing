@@ -8,52 +8,92 @@
     <%- include("../partials/header.ejs") %>
 
     <main>
-      <form action="/users/register" method="POST">
-        <label for="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value="<%= locals.oldData && locals.oldData.email ? locals.oldData.email : '' %>"
-          required
-        />
+      <form action="/users/register" method="POST" class="registerForm">
+
+        <div class="form-control">
+
+          <label for="email">Email:</label>
+
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value="<%= locals.oldData && locals.oldData.email ? locals.oldData.email : '' %>"
+            placeholder="Email"
+          />
+
+          <span class="invalid-value" id="emailError"></span>
+
+        </div>
+
         <% if (locals.errors && errors.email) { %>
-        <div class="invalid-value"><%= errors.email.msg %></div>
+          <div class="invalid-value"><%= errors.email.msg %></div>
         <% } %>
 
-        <label for="username">Username:</label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          value="<%= locals.oldData && locals.oldData.username ? locals.oldData.username : '' %>"
-          required
-        />
+        <div class="form-control">
+
+          <label for="username">Username:</label>
+
+          <input
+            type="text"
+            id="username"
+            name="username"
+            value="<%= locals.oldData && locals.oldData.username ? locals.oldData.username : '' %>"
+            placeholder="Username"
+          />
+
+          <span class="invalid-value" id="usernameError"></span>
+
+        </div>
+
         <% if (locals.errors && errors.username) { %>
         <div class="invalid-value"><%= errors.username.msg %></div>
         <% } %>
 
-        <label for="phone">Phone Number:</label>
-        <input
-          type="tel"
-          id="phone"
-          name="phone"
-          pattern="[0-9]{10}"
-          placeholder="Enter a 10-digit phone number"
-          value="<%= locals.oldData && locals.oldData.phone ? locals.oldData.phone : '' %>"
-        />
+        <div class="form-control">
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required />
+          <label for="phone">Phone Number:</label>
+        
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            pattern="[0-9]{10}"
+            placeholder="Enter a 10-digit phone number"
+            value="<%= locals.oldData && locals.oldData.phone ? locals.oldData.phone : '' %>"
+          />
+
+        </div>
+
+        <div class="form-control">
+
+          <label for="password">Password:</label>
+
+          <input type="password" id="password" name="password" placeholder="Password" />
+
+          <span class="invalid-value" id="passwordError"></span>
+
+        </div>
 
         <% if (locals.errors && errors.password) { %>
         <div class="invalid-value"><%= errors.password.msg %></div>
         <% } %>
+
+        <div class="form-control">
+
+          <label for="cnfrmPassword">Confirm password:</label>
+
+          <input type="password" id="cnfrmPassword" name="cnfrmPassword" placeholder="Confirm password" />
+
+          <span class="invalid-value" id="cnfrmPasswordError"></span>
+
+        </div>
 
         <button type="submit">Register</button>
       </form>
     </main>
 
     <%- include("../partials/footer.ejs") %>
+    <script src="/js/registerValidator.js"></script>
   </body>
 </html>

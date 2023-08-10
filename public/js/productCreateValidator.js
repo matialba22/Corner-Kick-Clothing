@@ -21,36 +21,26 @@ window.addEventListener("load", function() {
 
     function checkInputs() {
 
-        let errors = 0
-
-        console.log("checking inputs")
-        console.log(errors)
+        let errors = 0;
 
         if( name.value.trim().length < 1 ) {
-            console.log("checking name")
 
             setError(name, "You must set a name");
-            errors = errors + 1;
-            console.log(errors, "after name")
+            errors += 1;
 
         } else {
             setSuccess(name);
         }
 
         if( price.value.trim().length < 1 ) {
-            console.log("checking if theres price")
 
             setError(price, "You must set a price");
-            errors = errors + 1;
-
-            console.log( errors, "after price")
+            errors += 1;
 
         } else if ( price.value.trim() < 0 ) {
 
-            console.log("")
-
             setError(price, "The price must be a positive number");
-            errors = errors + 1;
+            errors += 1;
 
         } else {
             setSuccess(price);
@@ -59,7 +49,7 @@ window.addEventListener("load", function() {
         if(description.value.trim().length < 1 ){
 
             setError(description, "You must set a description");
-            errors = errors + 1;
+            errors += 1;
 
         } else {
             setSuccess(description);
@@ -68,7 +58,7 @@ window.addEventListener("load", function() {
         if(!category.value){
 
             setError(category, "You must choose a category");
-            errors = errors + 1;
+            errors += 1;
 
         } else {
             setSuccess(category);
@@ -77,7 +67,7 @@ window.addEventListener("load", function() {
         if(!subcategory.value){
 
             setError(subcategory, "You must choose a subcategory");
-            errors = errors + 1;
+            errors += 1;
 
         } else {
             setSuccess(subcategory);
@@ -86,7 +76,7 @@ window.addEventListener("load", function() {
         if(!brand.value){
 
             setError(brand, "You must choose a brand");
-            errors = errors + 1;
+            errors += 1;
 
         } else {
             setSuccess(brand);
@@ -95,13 +85,13 @@ window.addEventListener("load", function() {
         if(!images.value){
 
             setError(images, "You must upload up to 3 images");
-            errors = errors + 1;
+            errors += 1;
 
         } else {
             setSuccess(images);
         }
 
-        return errors
+        return errors;
     }
 
     function setError(input, message){
