@@ -1,0 +1,28 @@
+.mainImage{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.mainImage img {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.miniContainer{
+    display: flex;
+}
+
+.miniImage{
+    width: 100%;
+}
+
+img{
+    width: 100%;
+}
+
+@media Screen and (min-width: 769px) {
+    
+}
+  
+@media Screen and (min-width: 1200px) {
+    
+}

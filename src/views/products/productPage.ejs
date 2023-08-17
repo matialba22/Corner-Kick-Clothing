@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("../partials/head.ejs") %>
+    <link rel="stylesheet" href="/css/productPage.css" />
+  </head>
+  <body>
+    <%- include("../partials/header.ejs") %>
+    <main>
+      
+      <section>
+
+        <div>
+
+          <div class="mainImage">
+            <img src="/images/products/<%= product.img_1 %>" alt="Image of <%= product.name %>">
+          </div>
+
+          <div class="miniContainer">
+            <div class="miniImage">
+              <img src="/images/products/<%= product.img_1 %>" alt="Image of <%= product.name %>">
+            </div>
+
+            <div class="miniImage">
+              <img src="/images/products/<%= product.img_2 %>" alt="Image of <%= product.name %>">
+            </div>
+
+            <div class="miniImage">
+              <img src="/images/products/<%= product.img_3 %>" alt="Image of <%= product.name %>">
+            </div>
+          </div>
+
+        </div>
+
+        <div>
+          name
+          price
+          stuff
+          add
+        </div>
+
+      </section>
+
+      <section>
+        <div>
+          description
+          stuff
+        </div>
+      </section>
+
+      <section>
+        <div>
+          related products
+        </div>
+      </section>
+
+    </main>
+
+    <%- include("../partials/footer.ejs") %>
+    <script src="/js/prodPage.js"></script>
+  </body>
+</html>

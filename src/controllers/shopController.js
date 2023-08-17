@@ -135,6 +135,13 @@ const shopController = {
         res.sendStatus(500);
       });
   },
+
+  productPage: (req, res) => {
+    db.Products.findByPk(req.params.id)
+      .then((product) => {
+        res.render("./products/productPage", {product: product});
+      });
+  }
 };
 
 module.exports = shopController;

@@ -16,4 +16,6 @@ router.put("/edit/:id",  upload.array("images", 3), productValidator, shopContro
 
 router.delete("/edit/:id", shopController.deleteProduct);
 
+router.get("/product_:id", shopController.productPage);
+
 module.exports = router;

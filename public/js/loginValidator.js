@@ -1,4 +1,4 @@
-window.addEventListener("load", function() {
+window.addEventListener("load", () => {
 
     const form = document.querySelector("form.loginForm");
     const email = document.querySelector("#email");

@@ -1,4 +1,4 @@
-window.addEventListener("load", function() {
+window.addEventListener("load", () => {
 
     const form = document.querySelector("form.createForm");
     const name = document.querySelector("#name");
@@ -82,9 +82,8 @@ window.addEventListener("load", function() {
             setSuccess(brand);
         }
 
-        if(!images.value){
-
-            setError(images, "You must upload up to 3 images");
+        if(images.files.length != 3){
+            setError(images, "You must upload 3 images");
             errors += 1;
 
         } else {
