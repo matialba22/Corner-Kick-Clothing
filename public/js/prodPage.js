@@ -15,25 +15,25 @@ window.addEventListener("load", () => {
         });
 
         miniImg.addEventListener("mouseover", () => {
-           
-            mainImage.style.opacity = 0;
-
-            setTimeout(() => {
+            if (i !== selectedImageIndex) {
+              mainImage.style.opacity = 0;
+      
+              setTimeout(() => {
                 mainImage.src = miniImg.src;
                 mainImage.style.opacity = 1;
-            }, 300);
-
-        });
-        
-        miniImg.addEventListener("mouseout", () => {
-            
-            mainImage.style.opacity = 0;
-            
-            setTimeout(() => {
+              }, 300);
+            }
+          });
+      
+          miniImg.addEventListener("mouseout", () => {
+            if (i !== selectedImageIndex) {
+              mainImage.style.opacity = 0;
+      
+              setTimeout(() => {
                 mainImage.src = miniImages[selectedImageIndex].src;
                 mainImage.style.opacity = 1;
-            }, 300);
-
+              }, 300);
+            }
         });
 
     });

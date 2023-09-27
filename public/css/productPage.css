@@ -1,6 +1,7 @@
 .mainImage{
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
+    border: 1px solid lightgray;
 }
 
 .mainImage img {
@@ -9,14 +10,45 @@
 
 .miniContainer{
     display: flex;
+    border: 1px solid lightgray;
 }
 
 .miniImage{
     width: 100%;
+    padding: 10px;
 }
 
 img{
     width: 100%;
+}
+
+.prod-size-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.prod-size-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.prod-size-table{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.prod-size-box{
+    width: 25%;
+}
+
+.box-p{
+    margin: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px lightgray;
 }
 
 @media Screen and (min-width: 769px) {

@@ -10,6 +10,10 @@
       
       <section>
 
+        <div class="namePreview">
+          <p><%= product.name %></p>
+        </div>
+
         <div>
 
           <div class="mainImage">
@@ -33,18 +37,35 @@
         </div>
 
         <div>
-          name
-          price
-          stuff
-          add
+          <h2><%= product.name %></h2>
+          <h4>$<%= product.price %></h4>
+          
+          <div class="prod-size-container">
+
+            <div class="prod-size-header">
+              <p>Select size (US)</p>
+              <p>Size guide</p>
+            </div>
+
+            <div class="prod-size-table">
+              <div class="prod-size-box"><p class="box-p">1</p></div>
+              <div class="prod-size-box"><p class="box-p">2</p></div>
+              <div class="prod-size-box"><p class="box-p">3</p></div>
+              <div class="prod-size-box"><p class="box-p">4</p></div>
+              <div class="prod-size-box"><p class="box-p">5</p></div>
+              <div class="prod-size-box"><p class="box-p">6</p></div>
+              <div class="prod-size-box"><p class="box-p">7</p></div>
+              <div class="prod-size-box"><p class="box-p">8</p></div>
+            </div>
+          </div>
+          <p>Add to cart</p>
         </div>
 
       </section>
 
       <section>
         <div>
-          description
-          stuff
+          <p><%= product.description %></p>
         </div>
       </section>
 
