@@ -1,6 +1,10 @@
+.prod-name-preview{
+    font-weight: 300;
+}
+
 .mainImage{
     width: 100%;
-    margin: 0 auto;
+    margin: 15px auto;
     border: 1px solid lightgray;
 }
 
@@ -10,21 +14,29 @@
 
 .miniContainer{
     display: flex;
-    border: 1px solid lightgray;
+    justify-content: space-between;
+    margin-bottom: 15px;
 }
 
 .miniImage{
-    width: 100%;
+    width: 30%;
     padding: 10px;
+    border: 1px solid lightgray;
 }
 
 img{
     width: 100%;
 }
 
+.prod-name{
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
 .prod-size-container{
     display: flex;
     flex-direction: column;
+    margin: 30px auto;
 }
 
 .prod-size-header{
@@ -35,7 +47,6 @@ img{
 .prod-size-table{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
 }
 
 .prod-size-box{
@@ -49,6 +60,59 @@ img{
     justify-content: center;
     align-items: center;
     border: solid 1px lightgray;
+    border-radius: 10px;
+}
+
+.btn-add{
+    color: white;
+    background-color: black;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prod-description{
+    margin: 30px 0;
+}
+
+.btn-drop{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.fa-chevron-down {
+    transition: transform 0.2s ease-in-out;
+}
+
+.fa-chevron-down.rotated {
+    transform: rotate(-180deg);
+}
+
+.drop-container{
+    border-top: 1px solid lightgray;
+}
+
+.drop-text{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, padding-bottom 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.drop-text.open{
+    max-height: 150px; 
+    padding-bottom: 16px;
+    opacity: 1;
+    overflow: visible;
+}
+
+.related-prod-container{
+    border-top: 1px solid lightgray;
 }
 
 @media Screen and (min-width: 769px) {

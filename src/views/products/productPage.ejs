@@ -10,7 +10,7 @@
       
       <section>
 
-        <div class="namePreview">
+        <div class="prod-name-preview">
           <p><%= product.name %></p>
         </div>
 
@@ -35,10 +35,20 @@
           </div>
 
         </div>
+        
+      </section>
 
-        <div>
-          <h2><%= product.name %></h2>
-          <h4>$<%= product.price %></h4>
+      <section>
+      
+        <div class="prod-info">
+
+          <div class="prod-name">
+            <h2><%= product.name %></h2>
+          </div>
+
+          <div>
+            <h4>$<%= product.price %></h4>
+          </div>
           
           <div class="prod-size-container">
 
@@ -48,30 +58,91 @@
             </div>
 
             <div class="prod-size-table">
-              <div class="prod-size-box"><p class="box-p">1</p></div>
-              <div class="prod-size-box"><p class="box-p">2</p></div>
-              <div class="prod-size-box"><p class="box-p">3</p></div>
               <div class="prod-size-box"><p class="box-p">4</p></div>
+              <div class="prod-size-box"><p class="box-p">4.5</p></div>
               <div class="prod-size-box"><p class="box-p">5</p></div>
+              <div class="prod-size-box"><p class="box-p">5.5</p></div>
               <div class="prod-size-box"><p class="box-p">6</p></div>
+              <div class="prod-size-box"><p class="box-p">6.5</p></div>
               <div class="prod-size-box"><p class="box-p">7</p></div>
+              <div class="prod-size-box"><p class="box-p">7.5</p></div>
               <div class="prod-size-box"><p class="box-p">8</p></div>
+              <div class="prod-size-box"><p class="box-p">8.5</p></div>
+              <div class="prod-size-box"><p class="box-p">9</p></div>
+              <div class="prod-size-box"><p class="box-p">9.5</p></div>
+              <div class="prod-size-box"><p class="box-p">10</p></div>
+              <div class="prod-size-box"><p class="box-p">10.5</p></div>
+              <div class="prod-size-box"><p class="box-p">11</p></div>
+              <div class="prod-size-box"><p class="box-p">11.5</p></div>
+              <div class="prod-size-box"><p class="box-p">12</p></div>
+              <div class="prod-size-box"><p class="box-p">12.5</p></div>
+              <div class="prod-size-box"><p class="box-p">13</p></div>
             </div>
+
           </div>
-          <p>Add to cart</p>
+          
+          <div class="">
+
+            <div class="btn-add">
+              <p>Add to cart</p>
+            </div>
+
+          </div>
+
         </div>
 
-      </section>
 
-      <section>
-        <div>
+        <div class="prod-description">
           <p><%= product.description %></p>
         </div>
+
+        <div class="info-drop">
+
+          <div class="return-ship-drop">
+
+            <div class="drop-container">
+
+              <div class="btn-drop">
+
+                <h4>Shipping & Returns</h4><i class="fa-solid fa-chevron-down"></i>
+
+              </div>
+              
+              <div class="drop-text">
+                <p>Deliveries throughout the country. Check the estimated delivery date when purchasing. You can return your order for any reason, free of charge, within 30 days.</p>
+              </div>
+   
+            </div>
+
+          </div>
+
+          <div class="payment-drop">
+
+            <div class="drop-container">
+
+              <div class="btn-drop">
+                
+                <h4>Payment methods</h4><i class="fa-solid fa-chevron-down"></i>
+                
+              </div>
+              
+              <div class="drop-text">
+                <p>We accept the following payment options: Credit Cards and Debit Cards. <a href="#" class="btn-see-more">See more</a></p> 
+              </div>
+              
+            
+            </div>
+
+          </div>
+        </div>
       </section>
 
       <section>
-        <div>
-          related products
+        <div class="related-prod-container">
+          <div>
+            related products
+
+          </div>
         </div>
       </section>
 
