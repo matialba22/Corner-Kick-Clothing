@@ -1,8 +1,9 @@
 .header-container {
   display: flex;
-  padding: 20px 35px;
+  padding: 10px 20px;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid black;
 }
 
 .logo-container {
@@ -15,12 +16,6 @@
 }
 
 nav {
-  display: block;
-  padding: 10px 20px;
-  background-color: black;
-}
-
-nav ul {
   display: none;
 }
 
@@ -57,7 +52,7 @@ nav ul {
 }
 
 .burger-menu {
-  color: white;
+  color: black;
   font-size: 20px;
 }
 
@@ -70,16 +65,47 @@ li .links {
   color: black;
 }
 
-.tab {
-  display: none;
+.slick-slider {
+  width: 100%;
+  background-color: lightgray;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  color: black;
 }
-.pc {
-  display: none;
+
+.slick-list{
+  width: 35rem;
+  text-align: center;
+}
+
+.slick-arrow{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  width: 20px;
+  background: none;
+  
+}
+
+.fa-chevron-left,
+.fa-chevron-right {
+  font-size: 16px;
 }
 
 @media Screen and (min-width: 769px) {
   .mobile-nav {
     display: none;
+  }
+
+  nav {
+    display: block;
+    background-color: black;
+    padding: 10px;
   }
 
   .nav-ul {
@@ -99,22 +125,7 @@ li .links {
   .bold {
     font-weight: bold;
   }
-
-  .mob {
-    display: none;
-  }
-
-  .tab {
-    display: inline;
-  }
 }
 
 @media Screen and (min-width: 1200px) {
-  .pc {
-    display: inline;
-  }
-
-  .tab {
-    display: none;
-  }
 }

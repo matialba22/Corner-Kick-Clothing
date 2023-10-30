@@ -1,5 +1,12 @@
 <header>
   <div class="header-container">
+
+    <div class="mobile-nav">
+      <div class="icons burger-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+    
     <div class="logo-container">
       <a href="/">
         <img src="/images/logo.png" alt="Page logo" class="logo-img" />
@@ -9,14 +16,7 @@
     <div>
       <form method="get" action="/search" class="search">
         <div class="search-glass">
-          <input
-            class="search-bar"
-            type="text"
-            name="q"
-            placeholder="Search..."
-            required
-            minlength="3"
-          />
+          <input class="search-bar" type="text" name="q" placeholder="Search..." required minlength="3" />
           <div class="magn-glass">
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
@@ -33,7 +33,7 @@
       </a>
     </div>
 
-    <% }else {%>
+    <% } else {%>
 
     <div class="log-register">
       <i class="fa-solid fa-user"></i>
@@ -50,11 +50,7 @@
 
   <nav>
     <div>
-      <div class="mobile-nav">
-        <div class="icons burger-menu">
-          <i class="fas fa-bars"></i>
-        </div>
-      </div>
+      
       <ul class="nav-ul">
         <li>
           <a href="/shop" class="links">Shop</a>
@@ -74,4 +70,16 @@
       </ul>
     </div>
   </nav>
+
+  <div>
+    
+    <div class="slick-slider">
+      <div>content 1</div>
+      <div>content 2</div>
+      <div>content 3</div>
+    </div>
+    
+  </div>
+
+
 </header>

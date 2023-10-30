@@ -3,7 +3,7 @@
   color: white;
   width: 50%;
   padding: 15px;
-  margin: 10px auto;
+  margin: 15px auto;
   text-align: center;
 }
 
@@ -16,7 +16,7 @@
 .product-card {
   background-color: white;
   border: solid 1px black;
-  width: 100%;
+  width: 45%;
   margin: 5px;
 }
 
@@ -47,9 +47,6 @@
 }
 
 @media Screen and (min-width: 769px) {
-  .product-card {
-    width: 47%;
-  }
 }
 
 @media Screen and (min-width: 1200px) {
